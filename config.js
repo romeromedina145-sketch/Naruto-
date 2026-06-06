@@ -39,5 +39,5 @@ export const config = {
     },
 
     apiKzm: 'kzm-mLfTLDDU-jWxYzDHg',
-    kzmUrl: 'rest.kazuma.giize.com'
+    kzmUrl: 'rest.kazuma.uk'
 };
