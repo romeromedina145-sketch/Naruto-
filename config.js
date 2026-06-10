@@ -38,6 +38,6 @@ export const config = {
         video1: 'https://files.catbox.moe/lsqa96.mp4',
     },
 
-    apiKzm: 'kzm-AkpQk-lKhaizmu',
+    apiKzm: 'kzm-mLfTLDDU-jWxYzDHg',
     kzmUrl: 'rest.kazuma.uk'
 };
