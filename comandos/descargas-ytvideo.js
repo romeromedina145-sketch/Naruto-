@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const youtubeVideo = {
     name: 'play2',
-    alias: ['ytv', 'playvid'],
+    alias: ['ytv', 'ytmp4'],
     category: 'descargas',
     desc: 'Busca, muestra info y descarga el video de YouTube.',
     noPrefix: true,
@@ -70,12 +70,15 @@ const youtubeVideo = {
 
             const videoData = videoRes.result;
 
-            await conn.sendMessage(m.chat, { 
-                video: { url: videoData.download_url }, 
-                caption: `*${config.visuals.emoji3} ${videoData.title}*`,
-                mimetype: 'video/mp4'
-            }, { quoted: m });
+            const response = await axios.get(videoData.download_url, {
+    responseType: 'arraybuffer'
+});
 
+await conn.sendMessage(m.chat, {
+    video: Buffer.from(response.data),
+    caption: `*${config.visuals.emoji3} ${videoData.title}*`,
+    mimetype: 'video/mp4'
+}, { quoted: m });
             await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 
         } catch (e) {
